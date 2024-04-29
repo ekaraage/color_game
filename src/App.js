@@ -73,8 +73,8 @@ function App() {
     let [is_visible, setIs_visible] = useState(true);
     let score = show_score(col, color_input);
     const url = `https://twitter.com/intent/tweet?text=色合わせゲームをプレイ！スコアは${score}でした！
-    色合わせゲームをプレイ！
-    `
+    色合わせゲームをプレイする→https://ekaraage.github.io/color_game/
+    `;
 
 
     return (

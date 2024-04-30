@@ -1,6 +1,10 @@
 import './App.css';
 import { useState } from 'react';
-import { Block,Block_with_input } from './Block';
+import { Block, Block_with_input } from './Block';
+import {
+    TwitterShareButton,
+    TwitterIcon,
+  } from "react-share";
 
 function linear_to_xyz(col_linear) { 
     let col_xyz = [0, 0, 0];
@@ -72,9 +76,7 @@ function App() {
 
     let [is_visible, setIs_visible] = useState(true);
     let score = show_score(col, color_input);
-    const url = `https://twitter.com/intent/tweet?text=色合わせゲームをプレイ！スコアは${score}でした！
-    色合わせゲームをプレイする→https://ekaraage.github.io/color_game/
-    `;
+    const title = `色合わせゲームをプレイ！スコアは${score}でした！`;
 
 
     return (
@@ -93,7 +95,10 @@ function App() {
                             setIs_visible(is_visible = true);
                             setCol({ red: Math.floor(Math.random() * 256), green: Math.floor(Math.random() * 256), blue: Math.floor(Math.random() * 256) });
                         }}>戻る</button>
-                        <a href={url} target="_blank" rel="noopener noreferrer">ツイートする</a>
+                        <TwitterShareButton title={title} url="https://ekaraage.github.io/color_game">
+                            <TwitterIcon size={32} round />
+                        </TwitterShareButton>
+                        
                         </>
                 }
             </header>
